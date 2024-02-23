@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap.css" rel="stylesheet" />
 
     <style type="text/css">
         .auto-style1 {
@@ -85,7 +85,7 @@
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="Default.aspx"><--BACK</a></li>
 
                 </ul>
             </div>

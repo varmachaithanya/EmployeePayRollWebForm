@@ -15,8 +15,17 @@ namespace EmployeePayRoleForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            delete();
-            Response.Redirect("DeleteGet.aspx");
+            ScriptManager.RegisterStartupScript(this, GetType(), "refresh", "window.setTimeout('window.location.reload(true);',60000);", true);
+            if (Session["Id"] != null)
+            {
+                delete();
+                Response.Redirect("DeleteGet.aspx");
+            }
+            else
+            {
+                Response.Redirect("DLogin.aspx");
+            }
+            
         }
         
         void delete()

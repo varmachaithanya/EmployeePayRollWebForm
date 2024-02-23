@@ -25,10 +25,10 @@ namespace EmployeePayRoleForm
 
             using (SqlConnection conn = new SqlConnection(connectionstring))
             {
-                SqlCommand cmd = new SqlCommand("spGetEmployeeByName", conn);
+                SqlCommand cmd = new SqlCommand("spGetEmployeeById", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                string Name = (string)Session["Name"];
-                cmd.Parameters.AddWithValue("@Name", Name);
+                int Id = (int)Session["Id"];
+                cmd.Parameters.AddWithValue("@Id", Id);
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

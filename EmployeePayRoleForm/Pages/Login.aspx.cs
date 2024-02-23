@@ -32,13 +32,25 @@ namespace EmployeePayRoleForm
                 cmd.Parameters.AddWithValue("@Id", Id);
                 cmd.Parameters.AddWithValue("@Name", Name);
                 conn.Open();
-                cmd.ExecuteNonQuery();
-                
-                    Session["Id"] = Convert.ToInt32(TextBox1.Text);
-                    Session["Name"] = TextBox2.Text.ToString();
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Session["Id"] = dataReader["Id"];
+                    Session["Name"] = dataReader["Name"];
+                }
+                if (Id.Equals(Session["Id"]) && Name.Equals(Session["Name"]))
+                {
                     Response.Redirect("UserData.aspx");
-                
-             
+
+                }
+                else
+                {
+
+                    Response.Redirect("Login.aspx");
+
+                }
+
+
             }
         }
 

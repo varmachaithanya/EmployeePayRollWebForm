@@ -16,9 +16,20 @@ namespace EmployeePayRoleForm
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Login Successful');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "refresh", "window.setTimeout('window.location.reload(true);',60000);", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "alert('Login Successful');", true);
+            if (!IsPostBack)
+            {
+                if (Session["Id"] != null)
+                {
+                    Get();
 
-            Get();
+                }
+                else
+                {
+                    Response.Redirect("ULogin.aspx");
+                }
+            }
         }
 
 
@@ -32,22 +43,21 @@ namespace EmployeePayRoleForm
                 conn.Open();
                 string Name = (string)Session["Name"];
                 cmd.Parameters.AddWithValue("@Name", Name);
-                SqlDataReader dataReader = cmd.ExecuteReader();
-                while (dataReader.Read())
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
                 {
-                    TextBox1.Text= dataReader["Name"].ToString();
-                    RadioButtonList1.Text = dataReader["Gender"].ToString();
-                    RadioButtonList2.Text = dataReader["Department"].ToString();
-                    TextBox3.Text = dataReader["Salary"].ToString();
-                    TextBox4.Text = dataReader["Notes"].ToString();
-
+                    TextBox1.Text = (string)dr["Name"];
+                    RadioButtonList1.Text = (string)dr["Gender"];
+                    RadioButtonList2.Text = (string)dr["Department"];
+                    TextBox3.Text = (dr["Salary"]).ToString();
+                    TextBox4.Text = (string)dr["Notes"];
                 }
 
             }
         }
-
         protected void Button_Update(object sender, EventArgs e)
         {
+
             using (SqlConnection conn = new SqlConnection(connectionstring))
             {
 
@@ -73,8 +83,8 @@ namespace EmployeePayRoleForm
                 {
                     ProfileImage = Image4.ImageUrl;
                 }
-                string Gender = RadioButtonList1.Text;
-                string Department = RadioButtonList2.Text;
+                string Gender = RadioButtonList1.SelectedValue;
+                string Department = RadioButtonList2.SelectedValue;
                 string Salary = TextBox3.Text;
                 string StartDate = TextBox5.Text;
                 string Notes = TextBox4.Text;
@@ -92,7 +102,8 @@ namespace EmployeePayRoleForm
             }
         }
 
-        
-       
+
+
+
     }
 }

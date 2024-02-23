@@ -29,7 +29,7 @@
 
 }
     </style>
-            <link href="bootstrap.css" rel="stylesheet" />
+            <link href="../bootstrap.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -42,7 +42,7 @@
         </button>
         <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
             <ul class="navbar-nav flex-grow-1">
-                <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" runat="server" href="Default.aspx"><--BACK</a></li>
             </ul>
         </div>
     </div>
@@ -52,6 +52,7 @@
  <br />
     <center>
  <div class="container1">
+
      <div class="row">
          <div class="col-8" style="margin: 0px auto;">
              <form id="form1" style="margin: 0px auto;" runat="server">
@@ -189,6 +190,12 @@
          </div>
      </div>
  </div>
+       
+        </div>
+    </div>
+     <div style="clear:both;height:4px"></div>
+    </ItemTemplate>
+ </asp:Repeater>
 </center>
 </body>
 </html>

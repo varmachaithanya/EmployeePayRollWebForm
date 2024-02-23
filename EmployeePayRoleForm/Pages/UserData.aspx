@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="../bootstrap.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -16,15 +16,16 @@
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+           
+           
            
             <div style="float: right;">
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item"><a class="nav-link" runat="server" href="~/">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="Default.aspx">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="Update.aspx">Update</a></li>
                 </ul>
-
-
-
-
+               
             </div>
     </nav>
     <p>

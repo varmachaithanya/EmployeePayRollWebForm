@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="bootstrap.css" rel="stylesheet" />
+       <link href="../bootstrap.css" rel="stylesheet" />
 
     <style type="text/css">
         .auto-style1 {
@@ -35,23 +35,21 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" runat="server" href="~/">EMPLOYEE PAY ROLE</a>
+            <a class="navbar-brand" runat="server" href="~/">EMPLOYEE PAY ROLL</a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                </ul>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="Default.aspx"><--BACK</a></li>
 
+                </ul>
             </div>
-            
             </div>
-        </div>
-    </nav>
-    </br>
-    </br>
+        </nav>
+    <br />
+    <br/>
     <center>
         <form id="form1" runat="server">
             <div>

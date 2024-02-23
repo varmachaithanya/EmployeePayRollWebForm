@@ -23,21 +23,34 @@ namespace EmployeePayRoleForm
             using (SqlConnection conn = new SqlConnection(connectionstring))
             {
 
-              
 
-                    SqlCommand cmd = new SqlCommand("spLoginModel", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    int Id = int.Parse(TextBox1.Text);
-                    string Name = TextBox2.Text;
-                    cmd.Parameters.AddWithValue("@Id", Id);
-                    cmd.Parameters.AddWithValue("@Name", Name);
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("spLoginModel", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
 
-                    Session["Id"] = Convert.ToInt32(TextBox1.Text);
-                    Session["Name"] = TextBox2.Text.ToString();
-                Response.Redirect("DeletedData.aspx");
+                int Id = int.Parse(TextBox1.Text);
+                string Name = TextBox2.Text;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Name", Name);
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                SqlDataReader dataReader = cmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Session["Id"] = dataReader["Id"];
+                    Session["Name"] = dataReader["Name"];
+                }
+                if (Id.Equals(Session["Id"]) && Name.Equals(Session["Name"]))
+                {
+                    Response.Redirect("DeletedData.aspx");
+
+                }
+                else
+                {
+                    Response.Redirect("DLogin.aspx");
+
+                }
+                
             }
         }
     }
